@@ -14,7 +14,7 @@ namespace Phalcon\Ext\Mailer;
 
 use Phalcon\Config;
 use Phalcon\Mvc\View;
-use Phalcon\DiInterface;
+use Phalcon\Di\DiInterface;
 
 /**
  * Class Manager
@@ -395,7 +395,7 @@ class Manager extends \Phalcon\Di\Injectable
     /**
      * Returns the internal dependency injector
      *
-     * @return \Phalcon\DiInterface
+     * @return \Phalcon\Di\DiInterface
      */
     public function getDI()
     {

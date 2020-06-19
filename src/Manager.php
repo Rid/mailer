@@ -13,14 +13,13 @@
 namespace Phalcon\Ext\Mailer;
 
 use Phalcon\Config;
-use Phalcon\Mvc\User\Component;
 use Phalcon\Mvc\View;
 use Phalcon\DiInterface;
 
 /**
  * Class Manager
  */
-class Manager extends Component
+class Manager extends \Phalcon\Di\Injectable
 {
     const AUTHENTICATION_MODE_CRAM_MD5  = 'CRAM-MD5';
     const AUTHENTICATION_MODE_LOGIN     = 'LOGIN';

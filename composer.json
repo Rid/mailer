@@ -20,6 +20,11 @@
         "swiftmailer/swiftmailer": "^5.4"
     },
 
+    "require-dev": {
+        "phalcon/devtools": "~4.0",
+        "phalcon/ide-stubs": "^4.0"
+    },
+
     "autoload": {
         "psr-4": {
             "Phalcon\\Ext\\Mailer\\": "src/"

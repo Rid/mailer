@@ -397,7 +397,7 @@ class Manager extends \Phalcon\Di\Injectable
      *
      * @return \Phalcon\Di\DiInterface
      */
-    public function getDI()
+    public function getDI(): DiInterface
     {
         if (!($di = parent::getDI()) && !($di instanceof DiInterface)) {
             throw new \RuntimeException('A dependency injection object is required to access internal services');

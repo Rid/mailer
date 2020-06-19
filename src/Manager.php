@@ -15,11 +15,13 @@ namespace Phalcon\Ext\Mailer;
 use Phalcon\Config;
 use Phalcon\Mvc\View;
 use Phalcon\Di\DiInterface;
+use Phalcon\Events\EventsAwareInterface;
+use \Phalcon\Events\ManagerInterface;
 
 /**
  * Class Manager
  */
-class Manager extends \Phalcon\Di\Injectable
+class Manager extends \Phalcon\Di\Injectable implements EventsAwareInterface
 {
     const AUTHENTICATION_MODE_CRAM_MD5  = 'CRAM-MD5';
     const AUTHENTICATION_MODE_LOGIN     = 'LOGIN';
@@ -52,6 +54,11 @@ class Manager extends \Phalcon\Di\Injectable
     protected $view;
 
     /**
+     * @var ManagerInterface
+     */
+    protected $eventsManager;
+
+    /**
      * Create a new MailerManager component using $config for configuring
      *
      * @param array $config
@@ -59,6 +66,27 @@ class Manager extends \Phalcon\Di\Injectable
     public function __construct(array $config)
     {
         $this->configure($config);
+    }
+
+    /**
+     * Returns the internal event manager
+     *
+     * @return ManagerInterface|null
+     */
+    public function getEventsManager(): ?ManagerInterface
+    {
+        return $this->eventsManager;
+    }
+
+    /**
+     * Sets the events manager
+     *
+     * @param ManagerInterface $eventsManager
+     * @return void
+     */
+    public function setEventsManager(ManagerInterface $eventsManager): void
+    {
+        $this->eventsManager = $eventsManager;
     }
 
     /**
